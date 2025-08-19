@@ -1,0 +1,192 @@
+//------------------------------------------------
+//--- 010 Editor Binary Template
+//
+//      Source: geospatial/shapefile_main.ksy
+//      Version: 1.0
+//      License: CC0-1.0
+//      Purpose: ESRI Shapefile main file format for GIS vector data
+//
+//  Implementation Notes:
+//    - Endianness: Little Endian (except file header)
+//    - Supports all shape types including Z and M coordinates
+//    - Variable-length records
+//
+//  Usage:
+//    Templates > Run Template > Select this file
+//    For .shp files (main shapefile)
+//
+//  Requirements:
+//    - 010 Editor v16.0+
+//------------------------------------------------
+
+LittleEndian();
+
+enum <int32> SHAPE_TYPE {
+    NULL_SHAPE = 0,
+    POINT = 1,
+    POLY_LINE = 3,
+    POLYGON = 5,
+    MULTI_POINT = 8,
+    POINT_Z = 11,
+    POLY_LINE_Z = 13,
+    POLYGON_Z = 15,
+    MULTI_POINT_Z = 18,
+    POINT_M = 21,
+    POLY_LINE_M = 23,
+    POLYGON_M = 25,
+    MULTI_POINT_M = 28,
+    MULTI_PATCH = 31
+};
+
+typedef struct {
+    double min;
+    double max;
+} BOUNDS_MIN_MAX;
+
+typedef struct {
+    BOUNDS_MIN_MAX x;
+    BOUNDS_MIN_MAX y;
+} BOUNDING_BOX_XY;
+
+typedef struct {
+    BOUNDS_MIN_MAX x;
+    BOUNDS_MIN_MAX y;
+    BOUNDS_MIN_MAX z;
+    BOUNDS_MIN_MAX m;
+} BOUNDING_BOX_XYZM;
+
+typedef struct {
+    double x;
+    double y;
+} POINT_XY;
+
+typedef struct {
+    BigEndian();
+    uchar file_code[4];  // 0x00, 0x00, 0x27, 0x0a
+    Assert(file_code[0] == 0x00 && file_code[1] == 0x00 && 
+           file_code[2] == 0x27 && file_code[3] == 0x0a, "Invalid shapefile signature");
+    
+    uchar unused_field_1[4];
+    uchar unused_field_2[4];
+    uchar unused_field_3[4];
+    uchar unused_field_4[4];
+    uchar unused_field_5[4];
+    int32 file_length;
+    
+    LittleEndian();
+    uchar version[4];  // 0xe8, 0x03, 0x00, 0x00 (1000)
+    Assert(version[0] == 0xe8 && version[1] == 0x03 && 
+           version[2] == 0x00 && version[3] == 0x00, "Invalid shapefile version");
+    
+    SHAPE_TYPE shape_type;
+    BOUNDING_BOX_XYZM bounding_box;
+} FILE_HEADER;
+
+typedef struct {
+    BigEndian();
+    int32 record_number;
+    int32 content_length;
+    LittleEndian();
+} RECORD_HEADER;
+
+typedef struct {
+    double x;
+    double y;
+} POINT_SHAPE;
+
+typedef struct {
+    BOUNDING_BOX_XY bounding_box;
+    int32 number_of_parts;
+    int32 number_of_points;
+    int32 parts[number_of_parts];
+    POINT_XY points[number_of_points];
+} POLY_LINE_SHAPE;
+
+typedef struct {
+    BOUNDING_BOX_XY bounding_box;
+    int32 number_of_parts;
+    int32 number_of_points;
+    int32 parts[number_of_parts];
+    POINT_XY points[number_of_points];
+} POLYGON_SHAPE;
+
+typedef struct {
+    BOUNDING_BOX_XY bounding_box;
+    int32 number_of_points;
+    POINT_XY points[number_of_points];
+} MULTI_POINT_SHAPE;
+
+typedef struct {
+    double x;
+    double y;
+    double z;
+    double m;
+} POINT_Z_SHAPE;
+
+typedef struct {
+    BOUNDING_BOX_XY bounding_box;
+    int32 number_of_parts;
+    int32 number_of_points;
+    int32 parts[number_of_parts];
+    POINT_XY points[number_of_points];
+    BOUNDS_MIN_MAX z_range;
+    double z_values[number_of_points];
+    BOUNDS_MIN_MAX m_range;
+    double m_values[number_of_points];
+} POLY_LINE_Z_SHAPE;
+
+typedef struct {
+    RECORD_HEADER header;
+    
+    local int64 content_start = FTell();
+    SHAPE_TYPE shape_type;
+    
+    switch (shape_type) {
+        case POINT:
+            POINT_SHAPE point_data;
+            break;
+        case POLY_LINE:
+            POLY_LINE_SHAPE polyline_data;
+            break;
+        case POLYGON:
+            POLYGON_SHAPE polygon_data;
+            break;
+        case MULTI_POINT:
+            MULTI_POINT_SHAPE multipoint_data;
+            break;
+        case POINT_Z:
+            POINT_Z_SHAPE point_z_data;
+            break;
+        case POLY_LINE_Z:
+            POLY_LINE_Z_SHAPE polyline_z_data;
+            break;
+        case NULL_SHAPE:
+            // No additional data for null shapes
+            break;
+        default:
+            // Handle other shape types or unknown data
+            local int remaining_bytes = (header.content_length * 2) - 4;
+            if (remaining_bytes > 0) {
+                uchar unknown_data[remaining_bytes];
+            }
+            break;
+    }
+    
+    // Ensure we've read exactly content_length * 2 bytes
+    local int64 bytes_read = FTell() - content_start;
+    Assert(bytes_read == header.content_length * 2, "Content length mismatch");
+} RECORD;
+
+// Main structure
+struct SHAPEFILE {
+    FILE_HEADER header;
+    
+    // Calculate expected file size
+    local int64 expected_size = header.file_length * 2;
+    Assert(FileSize() == expected_size, "File size doesn't match header");
+    
+    // Read records until end of file
+    while (!FEof()) {
+        RECORD record;
+    }
+} shapefile;
