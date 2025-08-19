@@ -88,10 +88,10 @@ All templates undergo rigorous validation using representative datasets from the
 If you use these templates in your research, please cite this repository:
 
 ```bibtex
-@software{salas_010_editor_scientific_templates_2024,
-  author       = {Salas, Alejandro J.},
+@software{salas_010_editor_scientific_templates_2025,
+  author       = {Salas Bastidas, Alexander},
   title        = {010 Editor Scientific Binary Templates},
-  year         = {2024},
+  year         = {2025},
   publisher    = {GitHub},
   url          = {https://github.com/ajsb85/010-editor-scientific-templates},
   doi          = {10.5281/zenodo.XXXXXX}
@@ -110,10 +110,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-**Alejandro J. Salas**  
-*IEEE Senior Member*  
+**Alexander Salas Bastidas**  
+*IEEE Member 41608430*  
 Email: <a.salas@ieee.org>  
-ORCID: [0000-0000-0000-0000](https://orcid.org/0000-0000-0000-0000)
+ORCID: [0000-0003-1735-203X](https://orcid.org/0000-0003-1735-203X)
 
 ---
 
