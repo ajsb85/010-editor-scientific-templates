@@ -324,3 +324,34 @@ TSWLatexianTemp*
 # option is specified. Footnotes are the stored in a file with suffix Notes.bib.
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
+
+# 010 Editor specific
+*.bak
+*~
+.DS_Store
+Thumbs.db
+
+# Testing artifacts
+test_output/
+validation_logs/
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Documentation builds
+docs/_build/
+docs/html/
+docs/latex/
