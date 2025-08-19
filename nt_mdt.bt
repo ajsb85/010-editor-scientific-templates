@@ -1,22 +1,15 @@
 //------------------------------------------------
-//--- 010 Editor Binary Template
+//--- 010 Editor v16.0 Binary Template
 //
-//      Source: scientific/nt_mdt/nt_mdt.ksy
-//      Version: 1.0
-//      License: GPL-3.0-or-later  
-//      Purpose: NT-MDT scientific data format for scanning probe microscopy
-//
-//  Implementation Notes:
-//    - Endianness: Little Endian
-//    - Contains SPM scans, spectra, Raman data
-//    - Variable frame structure with type switching
-//
-//  Usage:
-//    Templates > Run Template > Select this file
-//    Supports .mdt files from NT-MDT software
-//
-//  Requirements:
-//    - 010 Editor v16.0+
+//      File: nt_mdt.bt
+//   Authors: Alexander Salas Bastidas <a.salas@ieee.org>
+//   Version: 1.0
+//   Purpose: NT-MDT scientific data format for scanning probe microscopy
+//  Category: Scientific
+// File Mask: *.mdt
+//  ID Bytes: 01 B0 93 FF
+//   History: 
+//   1.0   2025-08-19 Alexander Salas Bastidas : Initial implementation supporting NT-MDT scanning probe microscopy data with frame-based structure, spectroscopy data, and metadata parsing for Nova, Image Analysis, and Gwyddion software compatibility.
 //------------------------------------------------
 
 LittleEndian();

@@ -1,23 +1,15 @@
 //------------------------------------------------
-//--- 010 Editor Binary Template
+//--- 010 Editor v16.0 Binary Template
 //
-//      Source: serialization/msgpack.ksy
-//      Version: 1.0
-//      License: MIT
-//      Purpose: MessagePack serialization format for ML models and data
-//
-//  Implementation Notes:
-//    - Endianness: Big Endian
-//    - Self-describing binary format
-//    - Commonly used for ML model serialization
-//    - Supports nested structures, arrays, maps
-//
-//  Usage:
-//    Templates > Run Template > Select this file
-//    For .msgpack, .mp files and ML model data
-//
-//  Requirements:
-//    - 010 Editor v16.0+
+//      File: msgpack.bt
+//   Authors: Alexander Salas Bastidas <a.salas@ieee.org>
+//   Version: 1.0
+//   Purpose: MessagePack serialization format for ML models and data
+//  Category: Serialization
+// File Mask: *.msgpack,*.mp
+//  ID Bytes: 
+//   History: 
+//   1.0   2025-08-19 Alexander Salas Bastidas : Initial implementation with complete MessagePack format support including all data types, arrays, maps, and extension types for machine learning applications.
 //------------------------------------------------
 
 BigEndian();

@@ -1,22 +1,15 @@
 //------------------------------------------------
-//--- 010 Editor Binary Template
+//--- 010 Editor v16.0 Binary Template
 //
-//      Source: geospatial/shapefile_main.ksy
-//      Version: 1.0
-//      License: CC0-1.0
-//      Purpose: ESRI Shapefile main file format for GIS vector data
-//
-//  Implementation Notes:
-//    - Endianness: Little Endian (except file header)
-//    - Supports all shape types including Z and M coordinates
-//    - Variable-length records
-//
-//  Usage:
-//    Templates > Run Template > Select this file
-//    For .shp files (main shapefile)
-//
-//  Requirements:
-//    - 010 Editor v16.0+
+//      File: shapefile_main.bt
+//   Authors: Alexander Salas Bastidas <a.salas@ieee.org>
+//   Version: 1.0
+//   Purpose: ESRI Shapefile main file format for GIS vector data
+//  Category: GIS
+// File Mask: *.shp
+//  ID Bytes: 00 00 27 0A
+//   History: 
+//   1.0   2025-08-19 Alexander Salas Bastidas : Initial implementation supporting all ESRI Shapefile geometry types including points, polylines, polygons, multipoints, and Z/M coordinate variants for comprehensive geospatial vector data analysis.
 //------------------------------------------------
 
 LittleEndian();

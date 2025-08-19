@@ -1,23 +1,15 @@
 //------------------------------------------------
-//--- 010 Editor Binary Template
+//--- 010 Editor v16.0 Binary Template
 //
-//      Source: scientific/spectroscopy/specpr.ksy
-//      Version: 1.0
-//      License: Unlicense
-//      Purpose: SPECPR spectroscopy data format for spectrum processing
-//
-//  Implementation Notes:
-//    - Endianness: Big Endian (Sun/HP workstation format)
-//    - Fixed 1536 bytes per record
-//    - IEEE format real numbers
-//    - Record numbering starts at 0
-//
-//  Usage:
-//    Templates > Run Template > Select this file
-//    For spectral library files (.spec)
-//
-//  Requirements:
-//    - 010 Editor v16.0+
+//      File: specpr.bt
+//   Authors: Alexander Salas Bastidas <a.salas@ieee.org>
+//   Version: 1.0
+//   Purpose: SPECPR spectroscopy data format for spectrum processing
+//  Category: Scientific
+// File Mask: *.spec
+//  ID Bytes: 
+//   History: 
+//   1.0   2025-08-19 Alexander Salas Bastidas : Initial implementation of SPECtrum Processing Routines Data Format with fixed 1536-byte records, IEEE format real numbers, and support for spectral data analysis including astronomical and geological applications.
 //------------------------------------------------
 
 BigEndian();
