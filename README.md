@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![010 Editor](https://img.shields.io/badge/010%20Editor-v16.0+-blue.svg)](https://www.sweetscape.com/010editor/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXX)
+[![DOI](https://zenodo.org/badge/1040481111.svg)](https://doi.org/10.5281/zenodo.16899739)
 
 ## Abstract
 
@@ -94,7 +94,7 @@ If you use these templates in your research, please cite this repository:
   year         = {2025},
   publisher    = {GitHub},
   url          = {https://github.com/ajsb85/010-editor-scientific-templates},
-  doi          = {10.5281/zenodo.XXXXXX}
+  doi          = {10.5281/zenodo.16899739}
 }
 ```
 
