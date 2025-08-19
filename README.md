@@ -1,4 +1,4 @@
-# 010 Editor Scientific Binary Templates
+![010 Editor Scientific Binary Templates](./readme-banner-010-editor.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![010 Editor](https://img.shields.io/badge/010%20Editor-v16.0+-blue.svg)](https://www.sweetscape.com/010editor/)
