@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Salas Bastidas"
+  given-names: "Alexander"
+  orcid: "https://orcid.org/0000-0003-1735-203X"
+  email: "a.salas@ieee.org"
+title: "010 Editor Scientific Binary Templates"
+version: 1.0.0
+date-released: 2024-08-19
+url: "https://github.com/ajsb85/010-editor-scientific-templates"
+repository-code: "https://github.com/ajsb85/010-editor-scientific-templates"
+keywords:
+  - "binary analysis"
+  - "scientific computing"
+  - "010 editor"
+  - "file formats"
+  - "spectroscopy"
+  - "geospatial"
+license: MIT
